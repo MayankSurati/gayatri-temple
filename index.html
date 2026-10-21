@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayatri Maa Temple - Divine Portal & Greetings</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#fffbf0',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        maroon: '#6b1111',
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Cambria', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf8f5;
+        }
+        .heading-font {
+            font-family: 'Cinzel', serif;
+        }
+        .mandala-bg {
+            background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #faf8f5 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0,15px 15px;
+            background-opacity: 0.05;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #92400e 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #78350f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.1), 0 8px 10px -6px rgba(217, 119, 6, 0.1);
+        }
+    </style>
+</head>
+<body class="mandala-bg text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-md border-b-2 border-saffron-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-white text-2xl shadow-lg border-2 border-amber-200">
+                        🪔
+                    </div>
+                    <div>
+                        <h1 class="heading-font text-xl sm:text-2xl font-bold text-amber-900 leading-tight">Gayatri Maa Temple</h1>
+                        <p class="text-xs text-saffron-700 tracking-widest font-semibold uppercase">Divine Sanctuary & Blessings</p>
+                    </div>
+                </div>
+
+                <!-- Nav Links (Desktop) -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4 items-center">
+                    <button onclick="switchTab('home')" class="nav-btn px-3 py-2 text-sm font-medium text-amber-900 hover:text-saffron-600 rounded-md transition">Home</button>
+                    <button onclick="switchTab('gallery')" class="nav-btn px-3 py-2 text-sm font-medium text-amber-900 hover:text-saffron-600 rounded-md transition">Media Gallery</button>
+                    <button onclick="switchTab('generator')" class="nav-btn px-3 py-2 text-sm font-medium text-amber-900 hover:text-saffron-600 rounded-md transition">Greeting Generator</button>
+                    <button onclick="switchTab('hosting')" class="nav-btn px-3 py-2 text-sm font-medium text-amber-900 hover:text-saffron-600 rounded-md transition">Free Hosting & 5 AM Automation</button>
+                    <div id="adminTabBtn" class="hidden">
+                        <button onclick="switchTab('admin')" class="px-3 py-2 text-sm font-bold text-red-700 hover:text-red-900 bg-red-50 hover:bg-red-100 rounded-md border border-red-200 transition">
+                            <i class="fa-solid fa-user-shield mr-1"></i> Admin Panel
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Auth Buttons & Profile -->
+                <div class="flex items-center space-x-3">
+                    <div id="authActions">
+                        <button onclick="openModal('loginModal')" class="px-4 py-2 text-sm font-medium text-amber-900 hover:bg-amber-50 rounded-lg border border-amber-300 transition mr-2">Login</button>
+                        <button onclick="openModal('registerModal')" class="px-4 py-2 text-sm font-semibold text-white gold-gradient hover:opacity-90 rounded-lg shadow-md transition">Register</button>
+                    </div>
+                    <div id="userProfileBtn" class="hidden flex items-center space-x-2">
+                        <button onclick="switchTab('profile')" class="flex items-center space-x-2 bg-amber-50 border border-amber-300 px-3 py-1.5 rounded-full hover:bg-amber-100 transition">
+                            <div class="w-8 h-8 rounded-full bg-saffron-600 text-white font-bold flex items-center justify-center text-sm" id="userAvatar">
+                                U
+                            </div>
+                            <span id="navUserName" class="text-sm font-semibold text-amber-900 hidden sm:inline">User</span>
+                        </button>
+                        <button onclick="handleLogout()" class="p-2 text-gray-500 hover:text-red-600 transition" title="Logout">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-md text-amber-900 hover:bg-amber-50">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-amber-200 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="switchTab('home')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-amber-900 hover:bg-amber-50">Home</button>
+            <button onclick="switchTab('gallery')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-amber-900 hover:bg-amber-50">Media Gallery</button>
+            <button onclick="switchTab('generator')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-amber-900 hover:bg-amber-50">Greeting Generator</button>
+            <button onclick="switchTab('hosting')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-amber-900 hover:bg-amber-50">Free Hosting & 5 AM Automation</button>
+            <button id="mobileAdminBtn" onclick="switchTab('admin')" class="hidden block w-full text-left px-3 py-2 rounded-md text-base font-bold text-red-700 bg-red-50">Admin Panel</button>
+        </div>
+    </header>
+
+    <!-- Announcement Bar -->
+    <div id="bannerAnnouncement" class="bg-saffron-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-medium shadow-inner flex items-center justify-center space-x-2">
+        <span>🚩 <strong>Special Notice:</strong> Join us for Navratri Maha Aarti & Special Gayatri Hawan every Sunday at 10:00 AM. 🪔</span>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- ================= HOME SECTION ================= -->
+        <section id="tab-home" class="tab-content space-y-10">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-amber-900 text-white min-h-[350px] flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-950 via-amber-900/80 to-transparent"></div>
+                
+                <div class="relative z-10 p-6 sm:p-12 max-w-2xl space-y-4">
+                    <span class="inline-block px-3 py-1 bg-amber-500/30 text-amber-200 border border-amber-400/40 rounded-full text-xs font-semibold uppercase tracking-wider">Welcome To Sanctuary</span>
+                    <h2 class="heading-font text-3xl sm:text-5xl font-extrabold tracking-wide text-amber-100">
+                        Divine Gayatri Maa Temple
+                    </h2>
+                    <p class="text-amber-100/90 text-sm sm:text-base leading-relaxed">
+                        Experience spiritual peace, sacred chants, and eternal blessings. Gayatri Maa is the Mother of the Vedas, symbolizing divine wisdom and illumination.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button onclick="switchTab('generator')" class="gold-gradient text-white font-semibold px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Create Greeting Card
+                        </button>
+                        <button onclick="document.getElementById('aarti-section').scrollIntoView({behavior: 'smooth'})" class="bg-white/10 hover:bg-white/20 text-white border border-amber-300/40 font-medium px-5 py-2.5 rounded-lg backdrop-blur transition">
+                            View Aarti Timings
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gayatri Mantra Box -->
+            <div class="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-2 border-amber-300 rounded-2xl p-6 sm:p-8 text-center card-shadow relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl select-none">🪔</div>
+                <h3 class="heading-font text-xl sm:text-2xl font-bold text-amber-900 mb-2">Pavitra Gayatri Mantra</h3>
+                <div class="my-4 p-4 bg-white/80 rounded-xl border border-amber-200 inline-block shadow-sm max-w-3xl w-full">
+                    <p class="heading-font text-lg sm:text-2xl font-bold text-saffron-800 tracking-wider leading-relaxed">
+                        ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं ।<br>
+                        भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥
+                    </p>
+                    <p class="text-xs sm:text-sm text-gray-600 italic mt-3">
+                        "O Divine Mother, may your divine light illuminate our intellect and lead us along the righteous path."
+                    </p>
+                </div>
+                <div class="flex justify-center items-center space-x-3 mt-2">
+                    <button onclick="toggleMantraAudio()" id="mantraAudioBtn" class="bg-saffron-600 hover:bg-saffron-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md flex items-center space-x-2 transition">
+                        <i class="fa-solid fa-play"></i> <span id="mantraBtnText">Listen Mantra Chant</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timings & Announcements -->
+            <div id="aarti-section" class="grid md:grid-cols-2 gap-6">
+                <!-- Timings -->
+                <div class="bg-white rounded-2xl p-6 border border-amber-200 card-shadow">
+                    <div class="flex items-center space-x-3 mb-4 border-b border-amber-100 pb-3">
+                        <div class="p-3 bg-amber-100 text-amber-800 rounded-xl"><i class="fa-solid fa-clock text-xl"></i></div>
+                        <div>
+                            <h3 class="heading-font text-lg font-bold text-amber-900">Temple & Aarti Schedule</h3>
+                            <p class="text-xs text-gray-500">Daily Darshan and Ritual Timings</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium"><i class="fa-solid fa-sun text-amber-500 mr-2"></i>Morning Aarti (Mangala)</span>
+                            <span class="font-bold text-amber-900" id="timingMorning">06:00 AM</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium"><i class="fa-solid fa-fire text-amber-500 mr-2"></i>Afternoon Bhog & Hawan</span>
+                            <span class="font-bold text-amber-900" id="timingNoon">12:30 PM</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium"><i class="fa-solid fa-moon text-amber-500 mr-2"></i>Evening Sandhya Aarti</span>
+                            <span class="font-bold text-amber-900" id="timingEvening">07:00 PM</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium"><i class="fa-solid fa-bell text-saffron-600 mr-2"></i>5 AM Automated Birthday/Anniversary Blessings</span>
+                            <span class="font-bold text-green-700">Active Daily 🌅</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="text-gray-600 font-medium"><i class="fa-solid fa-door-closed text-amber-500 mr-2"></i>Temple Closure</span>
+                            <span class="font-bold text-amber-900" id="timingClose">09:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Celebrations -->
+                <div class="bg-white rounded-2xl p-6 border border-amber-200 card-shadow">
+                    <div class="flex items-center space-x-3 mb-4 border-b border-amber-100 pb-3">
+                        <div class="p-3 bg-amber-100 text-amber-800 rounded-xl"><i class="fa-solid fa-calendar-check text-xl"></i></div>
+                        <div>
+                            <h3 class="heading-font text-lg font-bold text-amber-900">Upcoming Temple Festivals</h3>
+                            <p class="text-xs text-gray-500">Join the auspicious celebrations</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/60 flex items-start space-x-3">
+                            <span class="bg-saffron-600 text-white text-xs font-bold px-2.5 py-1 rounded-md mt-0.5">MAY 24</span>
+                            <div>
+                                <h4 class="font-bold text-amber-950">Gayatri Jayanti Mahotsav</h4>
+                                <p class="text-xs text-gray-600">Grand 108 Kundi Hawan, Bhandara & Maha Prasad distribution.</p>
+                            </div>
+                        </li>
+                        <li class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/60 flex items-start space-x-3">
+                            <span class="bg-saffron-600 text-white text-xs font-bold px-2.5 py-1 rounded-md mt-0.5">OCT 12</span>
+                            <div>
+                                <h4 class="font-bold text-amber-950">Sharad Navratri Utsav</h4>
+                                <p class="text-xs text-gray-600">9 Days of special Abhishekam, Chandi Path & Garba Sanjh.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- History / About Section -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200 card-shadow">
+                <h3 class="heading-font text-2xl font-bold text-amber-900 mb-4 border-b border-amber-100 pb-2">Sacred History & Significance</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-sm text-gray-700 leading-relaxed">
+                    <div>
+                        <h4 class="font-bold text-saffron-800 mb-1 text-base">The Goddess of Light</h4>
+                        <p>Goddess Gayatri is revered as the personification of the Gayatri Mantra. She is depicted with five faces representing the five elements and sitting upon a lotus flower.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-saffron-800 mb-1 text-base">Temple Establishment</h4>
+                        <p>Established to foster spiritual unity, devotional service, and Vedic learning, our temple serves as a peaceful haven for thousands of devotees annually.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-saffron-800 mb-1 text-base">Community & Service</h4>
+                        <p>We actively organize daily Annakshetra (free meal sewa), Vedic chanting classes for children, and cultural health camps for the needy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MEDIA GALLERY SECTION ================= -->
+        <section id="tab-gallery" class="tab-content hidden space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-6 rounded-2xl border border-amber-200 card-shadow">
+                <div>
+                    <h2 class="heading-font text-2xl font-bold text-amber-900">Temple Media Gallery</h2>
+                    <p class="text-xs text-gray-500">Explore photos and divine videos. Share your comments and likes!</p>
+                </div>
+                <!-- Gallery Filter Buttons -->
+                <div class="flex space-x-2 bg-amber-50 p-1.5 rounded-xl border border-amber-200">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn px-4 py-1.5 text-xs font-semibold rounded-lg bg-saffron-600 text-white shadow-sm transition">All</button>
+                    <button onclick="filterGallery('photo')" class="gallery-filter-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-amber-900 hover:bg-amber-100 transition">Photos</button>
+                    <button onclick="filterGallery('video')" class="gallery-filter-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-amber-900 hover:bg-amber-100 transition">Videos</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Items Rendered Here -->
+            </div>
+        </section>
+
+
+        <!-- ================= GREETING CARD GENERATOR ================= -->
+        <section id="tab-generator" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 border border-amber-200 card-shadow">
+                <div class="max-w-xl mx-auto text-center mb-8">
+                    <span class="text-xs font-bold uppercase tracking-wider text-saffron-600 bg-saffron-50 px-3 py-1 rounded-full border border-saffron-200">Personalized Blessings</span>
+                    <h2 class="heading-font text-3xl font-bold text-amber-900 mt-2">Dynamic Greeting Card Studio</h2>
+                    <p class="text-sm text-gray-600 mt-1">Create and download customized Birthday & Anniversary blessing images with Gayatri Maa artwork to share with loved ones.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    <!-- Controls Sidebar -->
+                    <div class="lg:col-span-5 bg-amber-50/50 p-5 rounded-2xl border border-amber-200 space-y-4">
+                        <h3 class="font-bold text-amber-900 border-b border-amber-200 pb-2 text-base flex items-center">
+                            <i class="fa-solid fa-sliders text-saffron-600 mr-2"></i> Card Customizer
+                        </h3>
+
+                        <!-- Greeting Type -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Occasion Type</label>
+                            <select id="gcType" onchange="updateGreetingCanvas()" class="w-full text-sm border-amber-300 rounded-lg p-2.5 focus:ring-saffron-500 focus:border-saffron-500 bg-white">
+                                <option value="Birthday">🎂 Birthday Blessings</option>
+                                <option value="Anniversary">💍 Wedding Anniversary</option>
+                                <option value="General">🪔 General Divine Wishes</option>
+                            </select>
+                        </div>
+
+                        <!-- Recipient Name -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Recipient Name</label>
+                            <input type="text" id="gcName" value="Shri Rajesh Sharma" oninput="updateGreetingCanvas()" placeholder="Enter full name" class="w-full text-sm border-amber-300 rounded-lg p-2.5 focus:ring-saffron-500 focus:border-saffron-500 bg-white">
+                        </div>
+
+                        <!-- Custom Blessing Message -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Custom Blessings / Mantra Text</label>
+                            <textarea id="gcMessage" rows="3" oninput="updateGreetingCanvas()" class="w-full text-sm border-amber-300 rounded-lg p-2.5 focus:ring-saffron-500 focus:border-saffron-500 bg-white" placeholder="Enter message">May Gayatri Maa shower eternal health, wisdom, and boundless peace upon you!</textarea>
+                        </div>
+
+                        <!-- Frame Theme -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Frame Style</label>
+                                <select id="gcFrame" onchange="updateGreetingCanvas()" class="w-full text-sm border-amber-300 rounded-lg p-2.5 bg-white">
+                                    <option value="royal">Royal Saffron & Gold</option>
+                                    <option value="maroon">Deep Temple Red</option>
+                                    <option value="emerald">Divine Emerald</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Font Color</label>
+                                <input type="color" id="gcTextColor" value="#6b1111" onchange="updateGreetingCanvas()" class="w-full h-10 border border-amber-300 rounded-lg cursor-pointer bg-white p-1">
+                            </div>
+                        </div>
+
+                        <!-- Sender Name -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">With Best Compliments From</label>
+                            <input type="text" id="gcSender" value="Gayatri Temple Trust & Family" oninput="updateGreetingCanvas()" class="w-full text-sm border-amber-300 rounded-lg p-2.5 bg-white">
+                        </div>
+
+                        <div class="pt-2 space-y-2">
+                            <button onclick="downloadGreetingCard()" class="w-full py-3 text-sm font-bold text-white gold-gradient hover:opacity-95 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-download"></i> <span>Download Greeting Image</span>
+                            </button>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="shareViaWhatsAppCustom()" class="w-full py-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold rounded-lg transition flex items-center justify-center space-x-1">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i> <span>Send WhatsApp</span>
+                                </button>
+                                <button onclick="shareViaEmailCustom()" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition flex items-center justify-center space-x-1">
+                                    <i class="fa-solid fa-envelope text-sm"></i> <span>Send Email</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Canvas Preview Container -->
+                    <div class="lg:col-span-7 flex flex-col items-center justify-center">
+                        <div class="text-xs font-medium text-gray-500 mb-2 flex items-center">
+                            <i class="fa-solid fa-eye text-saffron-600 mr-1.5"></i> Live Interactive Preview
+                        </div>
+                        <div class="w-full max-w-[500px] bg-amber-100 rounded-xl p-2 border-2 border-amber-300 shadow-xl overflow-hidden flex justify-center">
+                            <canvas id="greetingCanvas" width="600" height="800" class="w-full h-auto rounded-lg bg-white"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= USER PROFILE SECTION ================= -->
+        <section id="tab-profile" class="tab-content hidden space-y-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl border border-amber-200 card-shadow overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-800 to-saffron-700 p-6 text-white flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="w-20 h-20 rounded-full bg-amber-200 border-4 border-white text-saffron-800 font-extrabold text-3xl flex items-center justify-center shadow-lg" id="profileLargeAvatar">
+                        U
+                    </div>
+                    <div class="text-center sm:text-left flex-1">
+                        <h2 class="text-2xl font-bold heading-font" id="profileDisplayName">User Name</h2>
+                        <p class="text-amber-200 text-sm" id="profileEmail">user@example.com</p>
+                        <span class="inline-block mt-2 px-3 py-0.5 bg-white/20 rounded-full text-xs font-semibold tracking-wide border border-white/30" id="profileRoleBadge">Devotee</span>
+                    </div>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-8">
+                    <!-- Profile Update Form -->
+                    <div>
+                        <h3 class="heading-font text-lg font-bold text-amber-900 mb-4 border-b border-amber-100 pb-2">
+                            Personal & Important Dates
+                        </h3>
+                        <form id="profileForm" onsubmit="handleProfileSave(event)" class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="profName" required class="w-full text-sm border border-gray-300 rounded-lg p-2.5 focus:ring-saffron-500 focus:border-saffron-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">WhatsApp / Phone Number</label>
+                                <input type="tel" id="profPhone" placeholder="+91 9876543210" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Date of Birth 🎂</label>
+                                <input type="date" id="profDob" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Wedding Anniversary 💍</label>
+                                <input type="date" id="profAnniversary" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                            </div>
+                            <div class="sm:col-span-2 pt-2">
+                                <button type="submit" class="gold-gradient text-white font-bold px-6 py-2.5 rounded-lg shadow transition hover:opacity-95">
+                                    Save Details
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="border-t border-amber-100 pt-6">
+                        <h3 class="heading-font text-lg font-bold text-amber-900 mb-3">Devotee Actions & Automated Blessings</h3>
+                        <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 mb-4 text-xs text-amber-900 leading-relaxed">
+                            🌅 <strong>Daily Morning 5:00 AM Dispatch:</strong> Gayatri Maa Temple automatically sends customized devotional wishes with Gayatri Mantra & blessing card on your Birthday and Anniversary via WhatsApp & Email!
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="triggerQuickGreeting('Birthday')" class="bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center">
+                                <i class="fa-solid fa-cake-candles text-saffron-600 mr-2"></i> Generate My Birthday Greeting
+                            </button>
+                            <button onclick="triggerQuickGreeting('Anniversary')" class="bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center">
+                                <i class="fa-solid fa-heart text-saffron-600 mr-2"></i> Generate My Anniversary Greeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= ADMIN PANEL SECTION ================= -->
+        <section id="tab-admin" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 border border-red-200 card-shadow">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-red-100 pb-4 mb-6 gap-2">
+                    <div>
+                        <span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase">Protected Space</span>
+                        <h2 class="heading-font text-2xl font-bold text-amber-950 mt-1">Temple Administration Panel</h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-gray-500">Logged as Admin</span>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="flex border-b border-gray-200 overflow-x-auto space-x-4 mb-6">
+                    <button onclick="switchAdminSubTab('notifications')" id="adminTab-notifications" class="admin-subtab border-b-2 border-saffron-600 text-saffron-700 font-bold pb-2 text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-paper-plane mr-1"></i> Morning 5 AM Auto-Dispatcher
+                    </button>
+                    <button onclick="switchAdminSubTab('users')" id="adminTab-users" class="admin-subtab border-b-2 border-transparent text-gray-500 hover:text-amber-900 font-semibold pb-2 text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-users mr-1"></i> Devotees & Instant Direct Messages
+                    </button>
+                    <button onclick="switchAdminSubTab('settings')" id="adminTab-settings" class="admin-subtab border-b-2 border-transparent text-gray-500 hover:text-amber-900 font-semibold pb-2 text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-gear mr-1"></i> Temple Settings
+                    </button>
+                    <button onclick="switchAdminSubTab('media')" id="adminTab-media" class="admin-subtab border-b-2 border-transparent text-gray-500 hover:text-amber-900 font-semibold pb-2 text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-photo-film mr-1"></i> Manage Media
+                    </button>
+                </div>
+
+                <!-- SUBTAB 1: 5 AM Automated Notification Hub -->
+                <div id="adminSub-notifications" class="space-y-6">
+                    <!-- Scheduler Control Panel -->
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-2xl border border-amber-300 space-y-4">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                            <div>
+                                <h3 class="font-bold text-amber-900 text-lg flex items-center">
+                                    <i class="fa-solid fa-clock-rotate-left text-saffron-600 mr-2"></i> Morning 5:00 AM Auto-Dispatcher Engine
+                                </h3>
+                                <p class="text-xs text-gray-600">Automatically scans devotee dates daily at 05:00 AM and triggers devotional blessings.</p>
+                            </div>
+                            <button onclick="triggerMorning5AMDispatch(true)" class="gold-gradient text-white font-bold px-4 py-2.5 rounded-xl shadow-md text-xs hover:opacity-95 transition flex items-center space-x-1.5">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Run Today's Morning 5 AM Wishes Now</span>
+                            </button>
+                        </div>
+
+                        <!-- Config Switches -->
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2 border-t border-amber-200">
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-amber-900">Auto WhatsApp Dispatches</span>
+                                    <span class="text-[11px] text-gray-500">Sends 5:00 AM WhatsApp Msg</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="cfgAutoWhatsapp" checked onchange="saveNotificationConfig()" class="sr-only peer">
+                                    <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                                </label>
+                            </div>
+
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-amber-900">Auto Email Dispatches</span>
+                                    <span class="text-[11px] text-gray-500">Sends 5:00 AM Devotional Email</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="cfgAutoEmail" checked onchange="saveNotificationConfig()" class="sr-only peer">
+                                    <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-saffron-600"></div>
+                                </label>
+                            </div>
+
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-amber-900">Next Scheduled Run</span>
+                                    <span class="text-xs font-bold text-saffron-700" id="nextRunLabel">Tomorrow at 05:00 AM</span>
+                                </div>
+                                <i class="fa-solid fa-regular fa-calendar-check text-saffron-600 text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Today's Birthday & Anniversary Matches -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-amber-900 text-sm flex items-center">
+                                <i class="fa-solid fa-sparkles text-saffron-600 mr-1.5"></i> Today's Celebrating Devotees
+                            </h4>
+                            <span id="todayCelebrantsCount" class="text-xs bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-bold">0 Celebrants Today</span>
+                        </div>
+                        <div id="todayCelebrantsList" class="grid sm:grid-cols-2 gap-3">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Automation Log / Audit -->
+                    <div class="bg-white rounded-xl border border-amber-200 p-4 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-amber-950 text-xs uppercase tracking-wider">5:00 AM Dispatch Execution Log</h4>
+                            <button onclick="clearDispatchLogs()" class="text-[11px] text-gray-400 hover:text-red-600">Clear Logs</button>
+                        </div>
+                        <div id="dispatchLogsContainer" class="bg-gray-900 text-green-400 font-mono text-xs p-3 rounded-lg h-36 overflow-y-auto space-y-1">
+                            <!-- Live console output -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 2: Users & Direct Messaging -->
+                <div id="adminSub-users" class="hidden space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-gray-800 text-sm">Devotees List & Instant Direct Messages</h3>
+                        <span id="userCountBadge" class="bg-amber-100 text-amber-900 text-xs font-bold px-2 py-1 rounded">0 Devotees</span>
+                    </div>
+
+                    <div class="overflow-x-auto border border-amber-200 rounded-xl">
+                        <table class="w-full text-left text-sm text-gray-700">
+                            <thead class="bg-amber-50 text-amber-950 heading-font border-b border-amber-200">
+                                <tr>
+                                    <th class="p-3">User Name</th>
+                                    <th class="p-3">Contact</th>
+                                    <th class="p-3">Birthday</th>
+                                    <th class="p-3">Anniversary</th>
+                                    <th class="p-3 text-right">Instant 5 AM Dispatch Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminUserTable" class="divide-y divide-amber-100">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 3: Website Settings -->
+                <div id="adminSub-settings" class="hidden space-y-4 max-w-2xl">
+                    <form onsubmit="saveTempleSettings(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Banner Announcement Text</label>
+                            <input type="text" id="adminBannerText" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Morning Aarti Time</label>
+                                <input type="text" id="adminTimingMorning" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Evening Aarti Time</label>
+                                <input type="text" id="adminTimingEvening" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="gold-gradient text-white font-bold px-6 py-2.5 rounded-lg shadow">
+                                Save Settings
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SUBTAB 4: Manage Media -->
+                <div id="adminSub-media" class="hidden space-y-4">
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <h4 class="font-bold text-amber-900 text-sm mb-2">Add New Media Item</h4>
+                        <form onsubmit="addMediaItem(event)" class="grid sm:grid-cols-4 gap-3">
+                            <input type="text" id="mediaTitle" placeholder="Title / Event Name" required class="text-sm border border-gray-300 rounded-lg p-2">
+                            <select id="mediaType" class="text-sm border border-gray-300 rounded-lg p-2">
+                                <option value="photo">Photo Image URL</option>
+                                <option value="video">YouTube Embed Video URL</option>
+                            </select>
+                            <input type="url" id="mediaUrl" placeholder="https://..." required class="text-sm border border-gray-300 rounded-lg p-2">
+                            <button type="submit" class="bg-saffron-600 text-white font-bold text-sm rounded-lg py-2 hover:bg-saffron-700">Add Item</button>
+                        </form>
+                    </div>
+
+                    <h4 class="font-bold text-gray-800 text-sm mt-4">Current Media Items</h4>
+                    <div id="adminMediaList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Managed items here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= FREE HOSTING & AUTOMATION GUIDE ================= -->
+        <section id="tab-hosting" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200 card-shadow">
+                <div class="max-w-3xl">
+                    <span class="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded-md">Free Deployment & Automation Guide</span>
+                    <h2 class="heading-font text-3xl font-bold text-amber-900 mt-2">Free Website Hosting & 5 AM Cron Automation</h2>
+                    <p class="text-sm text-gray-600 mt-1">Complete setup guide to host this temple portal for free and configure automated 5:00 AM WhatsApp and Email greetings using free cron automation tools.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <!-- Method 1: GitHub Pages & GitHub Actions -->
+                    <div class="p-5 border border-amber-200 bg-amber-50/40 rounded-xl space-y-2">
+                        <div class="flex items-center space-x-2 text-amber-900 font-bold">
+                            <i class="fa-brands fa-github text-xl"></i>
+                            <h3>1. GitHub Pages + 5 AM Cron Action</h3>
+                        </div>
+                        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1.5 pl-1 leading-relaxed">
+                            <li>Upload <code class="bg-white px-1 border rounded text-amber-900">index.html</code> to a public GitHub repo.</li>
+                            <li>In <strong>Settings &gt; Pages</strong>, set source branch to <strong>main</strong> for free website hosting.</li>
+                            <li>To automate 5 AM dispatches, add a GitHub Workflow file <code class="bg-white px-1 border rounded text-amber-900">.github/workflows/morning5am.yml</code>:</li>
+                        </ol>
+                        <div class="bg-amber-950 text-amber-100 p-2.5 rounded-lg text-[11px] font-mono overflow-x-auto">
+                            name: Morning 5AM Dispatch<br>
+                            on:<br>
+                            &nbsp;&nbsp;schedule:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;- cron: '30 23 * * *' # 5:00 AM IST<br>
+                            jobs:<br>
+                            &nbsp;&nbsp;dispatch:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;steps:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: curl -X POST https://your-backend-api.com/trigger-5am
+                        </div>
+                    </div>
+
+                    <!-- Method 2: Netlify Drop & Scheduled Functions -->
+                    <div class="p-5 border border-amber-200 bg-amber-50/40 rounded-xl space-y-2">
+                        <div class="flex items-center space-x-2 text-amber-900 font-bold">
+                            <i class="fa-solid fa-globe text-xl text-teal-600"></i>
+                            <h3>2. Netlify Hosting + Scheduled Functions</h3>
+                        </div>
+                        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1.5 pl-1 leading-relaxed">
+                            <li>Drag and drop folder containing <code class="bg-white px-1 border rounded">index.html</code> on <a href="https://app.netlify.com/drop" target="_blank" class="text-saffron-700 underline font-semibold">app.netlify.com/drop</a>.</li>
+                            <li>Use <strong>Netlify Scheduled Functions</strong> with cron trigger <code class="bg-white px-1 border text-amber-900 rounded">@daily</code> set for 05:00 AM.</li>
+                            <li>Connect free <strong>EmailJS API</strong> or <strong>Twilio WhatsApp API</strong> inside the function.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Method 3: Vercel & Cron Jobs -->
+                    <div class="p-5 border border-amber-200 bg-amber-50/40 rounded-xl space-y-2">
+                        <div class="flex items-center space-x-2 text-amber-900 font-bold">
+                            <i class="fa-solid fa-triangle-circle-square text-xl text-black"></i>
+                            <h3>3. Vercel Hosting + Vercel Cron</h3>
+                        </div>
+                        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1.5 pl-1 leading-relaxed">
+                            <li>Import GitHub repository into <a href="https://vercel.com" target="_blank" class="text-saffron-700 underline font-semibold">Vercel.com</a> for instant free SSL hosting.</li>
+                            <li>Add a <code class="bg-white px-1 border rounded text-amber-900">vercel.json</code> file with a cron schedule:</li>
+                        </ol>
+                        <div class="bg-amber-950 text-amber-100 p-2.5 rounded-lg text-[11px] font-mono overflow-x-auto">
+                            {<br>
+                            &nbsp;&nbsp;"crons": [{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"path": "/api/send-5am-wishes",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"schedule": "30 23 * * *"<br>
+                            &nbsp;&nbsp;}]<br>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Method 4: Firebase Hosting & Cloud Scheduler -->
+                    <div class="p-5 border border-amber-200 bg-amber-50/40 rounded-xl space-y-2">
+                        <div class="flex items-center space-x-2 text-amber-900 font-bold">
+                            <i class="fa-solid fa-fire text-xl text-orange-500"></i>
+                            <h3>4. Firebase + Cloud Scheduler</h3>
+                        </div>
+                        <ol class="list-decimal list-inside text-xs text-gray-700 space-y-1.5 pl-1 leading-relaxed">
+                            <li>Deploy static site using <code class="bg-white px-1 border rounded">firebase deploy</code>.</li>
+                            <li>Use <strong>Firebase Cloud Functions v2</strong> with <code class="bg-white px-1 border rounded">onSchedule("0 5 * * *")</code> to query devotee birthdays/anniversaries from Firestore and send automated morning WhatsApp & Emails.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amber-950 text-amber-200/80 border-t-4 border-saffron-600 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid sm:grid-cols-3 gap-8 text-sm">
+            <div>
+                <h3 class="heading-font text-xl text-white font-bold mb-3">Gayatri Maa Temple</h3>
+                <p class="text-xs leading-relaxed text-amber-200/70">
+                    Dedicated to spreading divine illumination, Vedic chanting, social welfare, and spiritual empowerment for all humankind.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-amber-100 mb-3">Quick Navigation</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><button onclick="switchTab('home')" class="hover:text-amber-400">Home & Timings</button></li>
+                    <li><button onclick="switchTab('gallery')" class="hover:text-amber-400">Media & Darshan</button></li>
+                    <li><button onclick="switchTab('generator')" class="hover:text-amber-400">Greeting Generator Studio</button></li>
+                    <li><button onclick="switchTab('hosting')" class="hover:text-amber-400">Free Hosting & 5 AM Guide</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-amber-100 mb-3">Contact & Address</h4>
+                <p class="text-xs text-amber-200/70 space-y-1">
+                    <span>📍 Gayatri Temple Road, Spiritual Zone</span><br>
+                    <span>📞 Phone / WhatsApp: +91 (0) 98765-43210</span><br>
+                    <span>✉️ Email: info@gayatrimaatemple.org</span>
+                </p>
+            </div>
+        </div>
+        <div class="bg-amber-900/50 py-3 text-center text-xs text-amber-300/60 border-t border-amber-900">
+            © 2026 Gayatri Maa Temple Trust. Automated Morning 5 AM Dispatches Enabled.
+        </div>
+    </footer>
+
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl border border-amber-300">
+            <button onclick="closeModal('loginModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            <h3 class="heading-font text-2xl font-bold text-amber-900 mb-1">Devotee Login</h3>
+            <p class="text-xs text-gray-500 mb-4">Access your profile and temple greetings</p>
+
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="admin@temple.org or user@gmail.com" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded-lg border border-amber-200">
+                    💡 <strong>Demo Quick Login:</strong><br>
+                    • Admin: <code class="font-bold">admin@temple.org</code> / <code class="font-bold">admin123</code><br>
+                    • Devotee: <code class="font-bold">user@gmail.com</code> / <code class="font-bold">user123</code>
+                </div>
+                <button type="submit" class="w-full py-2.5 gold-gradient text-white font-bold rounded-lg shadow">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl border border-amber-300">
+            <button onclick="closeModal('registerModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            <h3 class="heading-font text-2xl font-bold text-amber-900 mb-1">Devotee Registration</h3>
+            <p class="text-xs text-gray-500 mb-4">Join our Gayatri Temple spiritual family</p>
+
+            <form onsubmit="handleRegister(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="regName" required placeholder="Shri Ramesh Patel" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="regEmail" required placeholder="devotee@example.com" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">WhatsApp / Mobile Number</label>
+                    <input type="tel" id="regPhone" required placeholder="+91 9876543210" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Password</label>
+                    <input type="password" id="regPassword" required placeholder="••••••••" class="w-full text-sm border border-gray-300 rounded-lg p-2.5">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Birthday 🎂</label>
+                        <input type="date" id="regDob" class="w-full text-sm border border-gray-300 rounded-lg p-2">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Anniversary 💍</label>
+                        <input type="date" id="regAnniversary" class="w-full text-sm border border-gray-300 rounded-lg p-2">
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-2.5 gold-gradient text-white font-bold rounded-lg shadow mt-2">Register</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Set dynamic date context (MM-DD evaluation helper)
+        const TODAY = new Date();
+        const TODAY_MM_DD = String(TODAY.getMonth() + 1).padStart(2, '0') + '-' + String(TODAY.getDate()).padStart(2, '0');
+
+        // Initial Data with today's date formatted to test 5 AM automated match immediately
+        const DEFAULT_USERS = [
+            { id: '1', name: 'Admin Priest', email: 'admin@temple.org', role: 'admin', dob: `1985-${TODAY_MM_DD}`, anniversary: '2010-11-20', phone: '+919876543210' },
+            { id: '2', name: 'Rajesh Sharma', email: 'user@gmail.com', role: 'user', dob: '1992-05-24', anniversary: `2018-${TODAY_MM_DD}`, phone: '+919123456789' },
+            { id: '3', name: 'Sunita Verma', email: 'sunita@example.com', role: 'user', dob: '1990-10-12', anniversary: '2015-12-05', phone: '+919988776655' }
+        ];
+
+        const DEFAULT_MEDIA = [
+            { id: 'm1', title: 'Maha Aarti Divine View', type: 'photo', url: 'https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?auto=format&fit=crop&w=800&q=80', likes: 24, comments: ['Har Har Gange!', 'Maa Gayatri Bless Us'] },
+            { id: 'm2', title: 'Morning Hawan Yagya', type: 'photo', url: 'https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=800&q=80', likes: 18, comments: ['Very peaceful atmosphere.'] },
+            { id: 'm3', title: 'Gayatri Mantra 108 Chanting Live', type: 'video', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', likes: 45, comments: ['Daily morning chant gives so much energy.'] }
+        ];
+
+        // Global State variables
+        let currentUser = null;
+        let users = JSON.parse(localStorage.getItem('temple_users')) || DEFAULT_USERS;
+        let mediaItems = JSON.parse(localStorage.getItem('temple_media')) || DEFAULT_MEDIA;
+        let notificationConfig = JSON.parse(localStorage.getItem('temple_notif_config')) || { autoWhatsapp: true, autoEmail: true };
+        let dispatchLogs = JSON.parse(localStorage.getItem('temple_dispatch_logs')) || [];
+        let isMantraPlaying = false;
+        let mantraAudio = null;
+
+        // --- INIT APP ---
+        window.onload = function() {
+            renderGallery();
+            renderAdminUsers();
+            renderAdminMedia();
+            renderNotificationHub();
+            updateGreetingCanvas();
+            checkAndSchedule5AMWorker();
+
+            // Load session if exists
+            const savedUser = localStorage.getItem('temple_session_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateAuthUI();
+            }
+        };
+
+        // --- TAB NAVIGATION ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.classList.remove('hidden');
+
+            document.getElementById('mobileMenu').classList.add('hidden');
+
+            if (tabId === 'generator') {
+                setTimeout(updateGreetingCanvas, 100);
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- MODAL UTILS ---
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        // --- AUTHENTICATION LOGIC ---
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const pass = document.getElementById('loginPassword').value;
+
+            const found = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (found) {
+                currentUser = found;
+                localStorage.setItem('temple_session_user', JSON.stringify(currentUser));
+                updateAuthUI();
+                closeModal('loginModal');
+                alert(`Welcome back, ${currentUser.name}!`);
+            } else {
+                alert('Invalid Email or Password.');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const dob = document.getElementById('regDob').value;
+            const anniversary = document.getElementById('regAnniversary').value;
+
+            if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+                alert('Email is already registered!');
+                return;
+            }
+
+            const newUser = {
+                id: Date.now().toString(),
+                name,
+                email,
+                phone: phone || '+919876543210',
+                role: 'user',
+                dob,
+                anniversary
+            };
+
+            users.push(newUser);
+            localStorage.setItem('temple_users', JSON.stringify(users));
+            currentUser = newUser;
+            localStorage.setItem('temple_session_user', JSON.stringify(currentUser));
+
+            updateAuthUI();
+            renderAdminUsers();
+            renderNotificationHub();
+            closeModal('registerModal');
+            alert('Registration Successful! Welcome to Gayatri Maa Temple Portal.');
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('temple_session_user');
+            updateAuthUI();
+            switchTab('home');
+        }
+
+        function updateAuthUI() {
+            const authActions = document.getElementById('authActions');
+            const userProfileBtn = document.getElementById('userProfileBtn');
+            const adminTabBtn = document.getElementById('adminTabBtn');
+            const mobileAdminBtn = document.getElementById('mobileAdminBtn');
+
+            if (currentUser) {
+                authActions.classList.add('hidden');
+                userProfileBtn.classList.remove('hidden');
+                document.getElementById('navUserName').innerText = currentUser.name;
+                document.getElementById('userAvatar').innerText = currentUser.name.charAt(0).toUpperCase();
+
+                // Profile Fields
+                document.getElementById('profName').value = currentUser.name;
+                document.getElementById('profPhone').value = currentUser.phone || '';
+                document.getElementById('profDob').value = currentUser.dob || '';
+                document.getElementById('profAnniversary').value = currentUser.anniversary || '';
+                document.getElementById('profileDisplayName').innerText = currentUser.name;
+                document.getElementById('profileEmail').innerText = currentUser.email;
+                document.getElementById('profileLargeAvatar').innerText = currentUser.name.charAt(0).toUpperCase();
+                document.getElementById('profileRoleBadge').innerText = currentUser.role === 'admin' ? 'Temple Administrator' : 'Devotee';
+
+                if (currentUser.role === 'admin') {
+                    adminTabBtn.classList.remove('hidden');
+                    mobileAdminBtn.classList.remove('hidden');
+                } else {
+                    adminTabBtn.classList.add('hidden');
+                    mobileAdminBtn.classList.add('hidden');
+                }
+            } else {
+                authActions.classList.remove('hidden');
+                userProfileBtn.classList.add('hidden');
+                adminTabBtn.classList.add('hidden');
+                mobileAdminBtn.classList.add('hidden');
+            }
+        }
+
+        function handleProfileSave(e) {
+            e.preventDefault();
+            if (!currentUser) return;
+
+            currentUser.name = document.getElementById('profName').value;
+            currentUser.phone = document.getElementById('profPhone').value;
+            currentUser.dob = document.getElementById('profDob').value;
+            currentUser.anniversary = document.getElementById('profAnniversary').value;
+
+            // Sync with users array
+            const index = users.findIndex(u => u.id === currentUser.id);
+            if (index !== -1) users[index] = currentUser;
+
+            localStorage.setItem('temple_users', JSON.stringify(users));
+            localStorage.setItem('temple_session_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            renderAdminUsers();
+            renderNotificationHub();
+            alert('Profile updated successfully!');
+        }
+
+
+        // --- DYNAMIC CANVAS GREETING GENERATOR ---
+        function updateGreetingCanvas() {
+            const canvas = document.getElementById('greetingCanvas');
+            const ctx = canvas.getContext('2d');
+
+            const gcType = document.getElementById('gcType').value;
+            const gcName = document.getElementById('gcName').value || 'Devotee';
+            const gcMessage = document.getElementById('gcMessage').value || '';
+            const gcFrame = document.getElementById('gcFrame').value;
+            const gcTextColor = document.getElementById('gcTextColor').value;
+            const gcSender = document.getElementById('gcSender').value || '';
+
+            // Clear Canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Frame / Background styles
+            if (gcFrame === 'royal') {
+                ctx.fillStyle = '#fffdf7';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = '#d97706';
+                ctx.lineWidth = 16;
+                ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+
+                ctx.strokeStyle = '#b45309';
+                ctx.lineWidth = 4;
+                ctx.strokeRect(24, 24, canvas.width - 48, canvas.height - 48);
+            } else if (gcFrame === 'maroon') {
+                ctx.fillStyle = '#fdf8f8';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = '#6b1111';
+                ctx.lineWidth = 16;
+                ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+
+                ctx.strokeStyle = '#d97706';
+                ctx.lineWidth = 4;
+                ctx.strokeRect(24, 24, canvas.width - 48, canvas.height - 48);
+            } else {
+                ctx.fillStyle = '#f2fcf6';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = '#047857';
+                ctx.lineWidth = 16;
+                ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+            }
+
+            // Decorative Corner Motifs
+            ctx.fillStyle = '#d97706';
+            ctx.font = '24px serif';
+            ctx.fillText('🪔', 35, 55);
+            ctx.fillText('🪔', canvas.width - 60, 55);
+            ctx.fillText('🪔', 35, canvas.height - 40);
+            ctx.fillText('🪔', canvas.width - 60, canvas.height - 40);
+
+            // Header Banner Artwork text
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#b45309';
+            ctx.font = 'bold 22px Cinzel, Georgia, serif';
+            ctx.fillText('|| GAYATRI MAA TEMPLE BLESSINGS ||', canvas.width / 2, 80);
+
+            // Central Symbol Artwork
+            ctx.fillStyle = '#d97706';
+            ctx.font = '54px serif';
+            ctx.fillText('ॐ', canvas.width / 2, 155);
+
+            // Occasion Title
+            ctx.fillStyle = gcTextColor;
+            ctx.font = 'bold 30px Cinzel, Georgia, serif';
+            let titleText = 'HAPPY BIRTHDAY';
+            if (gcType === 'Anniversary') titleText = 'HAPPY ANNIVERSARY';
+            if (gcType === 'General') titleText = 'DIVINE BLESSINGS';
+            ctx.fillText(titleText, canvas.width / 2, 225);
+
+            // Recipient Name
+            ctx.fillStyle = '#92400e';
+            ctx.font = 'bold 28px Poppins, sans-serif';
+            ctx.fillText(gcName, canvas.width / 2, 280);
+
+            // Divider Line
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(150, 310);
+            ctx.lineTo(canvas.width - 150, 310);
+            ctx.stroke();
+
+            // Gayatri Mantra Overlay
+            ctx.fillStyle = '#78350f';
+            ctx.font = 'bold 18px Georgia, serif';
+            ctx.fillText('ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं ।', canvas.width / 2, 360);
+            ctx.fillText('भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥', canvas.width / 2, 395);
+
+            // Custom Message Body Wraps
+            ctx.fillStyle = '#374151';
+            ctx.font = '16px Poppins, sans-serif';
+            wrapText(ctx, gcMessage, canvas.width / 2, 470, 480, 26);
+
+            // Footer Complement Line
+            ctx.strokeStyle = '#d97706';
+            ctx.beginPath();
+            ctx.moveTo(100, 680);
+            ctx.lineTo(canvas.width - 100, 680);
+            ctx.stroke();
+
+            ctx.fillStyle = '#6b1111';
+            ctx.font = 'italic 16px Poppins, sans-serif';
+            ctx.fillText('With Best Compliments & Pranam From:', canvas.width / 2, 715);
+
+            ctx.font = 'bold 18px Poppins, sans-serif';
+            ctx.fillStyle = '#b45309';
+            ctx.fillText(gcSender, canvas.width / 2, 745);
+        }
+
+        // Canvas Text Wrapper Helper
+        function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+            const words = text.split(' ');
+            let line = '';
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + ' ';
+                const metrics = ctx.measureText(testLine);
+                const testWidth = metrics.width;
+                if (testWidth > maxWidth && n > 0) {
+                    ctx.fillText(line, x, y);
+                    line = words[n] + ' ';
+                    y += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line, x, y);
+        }
+
+        function downloadGreetingCard() {
+            const canvas = document.getElementById('greetingCanvas');
+            const link = document.createElement('a');
+            link.download = 'Gayatri_Maa_Blessing_Greeting.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function shareViaWhatsAppCustom() {
+            const name = document.getElementById('gcName').value || 'Devotee';
+            const type = document.getElementById('gcType').value || 'Blessings';
+            const msg = generateDevotionalMessage(name, type);
+            const cleanPhone = (currentUser && currentUser.phone) ? currentUser.phone.replace(/[^0-9]/g, '') : '';
+            const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function shareViaEmailCustom() {
+            const name = document.getElementById('gcName').value || 'Devotee';
+            const type = document.getElementById('gcType').value || 'Blessings';
+            const email = (currentUser && currentUser.email) ? currentUser.email : '';
+            const subject = `🪔 Divine Morning 5 AM ${type} Blessings from Gayatri Maa Temple`;
+            const body = generateDevotionalMessage(name, type);
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function triggerQuickGreeting(type) {
+            if (!currentUser) {
+                openModal('loginModal');
+                return;
+            }
+            switchTab('generator');
+            document.getElementById('gcType').value = type;
+            document.getElementById('gcName').value = currentUser.name;
+            updateGreetingCanvas();
+        }
+
+
+        // --- AUTOMATED MORNING 5 AM DISPATCH ENGINE & WHATSAPP / EMAIL INTEGRATION ---
+
+        function generateDevotionalMessage(name, occasionType) {
+            return `🚩 *GAYATRI MAA TEMPLE MORNING 05:00 AM BLESSINGS* 🪔\n\n` +
+                   `"ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं ।\n` +
+                   `भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥"\n\n` +
+                   `Respected *${name}*,\n\n` +
+                   `May Goddess Gayatri Maa shower supreme health, spiritual wisdom, prosperity, and joy upon you on your auspicious *${occasionType}*!\n\n` +
+                   `✨ *Special Temple Archana:* A special morning 5:00 AM prayer & Hawan Yagya has been performed in your name at Gayatri Maa Temple.\n\n` +
+                   `🎴 *Download Your Blessed Canvas Card:* Visit your temple portal to view your dynamic custom greeting card.\n\n` +
+                   `Warm Pranam & Jai Gayatri Maa,\n` +
+                   `*Gayatri Maa Temple Trust & Priests*`;
+        }
+
+        function checkAndSchedule5AMWorker() {
+            // Check every minute if time is 5:00 AM (05:00)
+            setInterval(() => {
+                const now = new Date();
+                if (now.getHours() === 5 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                    addLog(`[AUTOMATED CRON 05:00 AM] Scheduled morning dispatch triggered!`);
+                    triggerMorning5AMDispatch(false);
+                }
+            }, 1000);
+        }
+
+        function triggerMorning5AMDispatch(isManualSimulation = true) {
+            const celebrants = getTodayCelebrants();
+            if (isManualSimulation) {
+                addLog(`[MANUAL TRIGGER] Admin initiated morning 5:00 AM dispatch simulation.`);
+            }
+
+            if (celebrants.length === 0) {
+                addLog(`[05:00 AM DISPATCH] No birthdays or anniversaries matching today's date.`);
+                if (isManualSimulation) alert("Morning 5 AM Dispatch completed: No devotee birthdays or anniversaries found for today.");
+                return;
+            }
+
+            let dispatchedCount = 0;
+            celebrants.forEach(item => {
+                const u = item.user;
+                const occasion = item.type;
+                const msg = generateDevotionalMessage(u.name, occasion);
+
+                // 1. WhatsApp Dispatch Handling
+                if (notificationConfig.autoWhatsapp) {
+                    const cleanPhone = u.phone ? u.phone.replace(/[^0-9]/g, '') : '';
+                    if (cleanPhone) {
+                        const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
+                        addLog(`[WHATSAPP DISPATCH -> ${u.name} (${cleanPhone})]: Sent 5 AM ${occasion} wishes.`);
+                        if (isManualSimulation) {
+                            window.open(waUrl, '_blank');
+                        }
+                    } else {
+                        addLog(`[WHATSAPP WARN]: Missing phone number for ${u.name}`);
+                    }
+                }
+
+                // 2. Email Dispatch Handling
+                if (notificationConfig.autoEmail) {
+                    addLog(`[EMAIL DISPATCH -> ${u.email}]: Sent 5 AM ${occasion} devotional email template.`);
+                }
+
+                dispatchedCount++;
+            });
+
+            addLog(`[05:00 AM DISPATCH SUCCESS]: Processed ${dispatchedCount} morning blessing dispatches.`);
+            renderNotificationHub();
+            if (isManualSimulation) {
+                alert(`Successfully dispatched Morning 5 AM Blessings to ${dispatchedCount} celebrating devotee(s)!`);
+            }
+        }
+
+        function getTodayCelebrants() {
+            const matches = [];
+            const todayMD = TODAY_MM_DD;
+
+            users.forEach(u => {
+                if (u.dob && u.dob.slice(5) === todayMD) {
+                    matches.push({ user: u, type: 'Birthday' });
+                }
+                if (u.anniversary && u.anniversary.slice(5) === todayMD) {
+                    matches.push({ user: u, type: 'Anniversary' });
+                }
+            });
+            return matches;
+        }
+
+        function triggerDirectWhatsApp(userId, occasion) {
+            const u = users.find(x => x.id === userId);
+            if (!u) return;
+            const cleanPhone = u.phone ? u.phone.replace(/[^0-9]/g, '') : '';
+            const msg = generateDevotionalMessage(u.name, occasion);
+            const waUrl = cleanPhone ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            addLog(`[DIRECT WHATSAPP] Admin manually triggered WhatsApp message to ${u.name}`);
+            window.open(waUrl, '_blank');
+        }
+
+        function triggerDirectEmail(userId, occasion) {
+            const u = users.find(x => x.id === userId);
+            if (!u) return;
+            const subject = `🪔 Gayatri Maa Temple Morning 5 AM ${occasion} Blessings`;
+            const body = generateDevotionalMessage(u.name, occasion);
+            addLog(`[DIRECT EMAIL] Admin manually opened mailto template for ${u.name}`);
+            window.location.href = `mailto:${u.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function renderNotificationHub() {
+            const todayList = document.getElementById('todayCelebrantsList');
+            const celebrants = getTodayCelebrants();
+
+            if (document.getElementById('todayCelebrantsCount')) {
+                document.getElementById('todayCelebrantsCount').innerText = `${celebrants.length} Celebrants Today`;
+            }
+
+            if (todayList) {
+                todayList.innerHTML = '';
+                if (celebrants.length === 0) {
+                    todayList.innerHTML = `<div class="col-span-2 text-xs text-gray-500 bg-white p-4 rounded-xl border border-amber-200 text-center">No birthdays or anniversaries scheduled for today. You can test instant triggers using user action buttons below.</div>`;
+                } else {
+                    celebrants.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = "bg-white p-3.5 rounded-xl border border-amber-300 card-shadow flex justify-between items-center";
+                        div.innerHTML = `
+                            <div>
+                                <span class="bg-saffron-100 text-saffron-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${item.type} TODAY</span>
+                                <h5 class="font-bold text-amber-950 text-sm mt-0.5">${item.user.name}</h5>
+                                <p class="text-[11px] text-gray-500">${item.user.email} | ${item.user.phone || 'No phone'}</p>
+                            </div>
+                            <div class="flex space-x-1.5">
+                                <button onclick="triggerDirectWhatsApp('${item.user.id}', '${item.type}')" class="bg-green-600 text-white p-2 rounded-lg text-xs font-bold hover:bg-green-700" title="Send WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </button>
+                                <button onclick="triggerDirectEmail('${item.user.id}', '${item.type}')" class="bg-blue-600 text-white p-2 rounded-lg text-xs font-bold hover:bg-blue-700" title="Send Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </button>
+                            </div>
+                        `;
+                        todayList.appendChild(div);
+                    });
+                }
+            }
+
+            // Sync switches
+            if (document.getElementById('cfgAutoWhatsapp')) {
+                document.getElementById('cfgAutoWhatsapp').checked = notificationConfig.autoWhatsapp;
+            }
+            if (document.getElementById('cfgAutoEmail')) {
+                document.getElementById('cfgAutoEmail').checked = notificationConfig.autoEmail;
+            }
+
+            renderLogs();
+        }
+
+        function saveNotificationConfig() {
+            notificationConfig.autoWhatsapp = document.getElementById('cfgAutoWhatsapp').checked;
+            notificationConfig.autoEmail = document.getElementById('cfgAutoEmail').checked;
+            localStorage.setItem('temple_notif_config', JSON.stringify(notificationConfig));
+            addLog(`[CONFIG UPDATED] Auto WhatsApp: ${notificationConfig.autoWhatsapp}, Auto Email: ${notificationConfig.autoEmail}`);
+        }
+
+        function addLog(msg) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${msg}`;
+            dispatchLogs.unshift(logEntry);
+            if (dispatchLogs.length > 50) dispatchLogs.pop();
+            localStorage.setItem('temple_dispatch_logs', JSON.stringify(dispatchLogs));
+            renderLogs();
+        }
+
+        function renderLogs() {
+            const container = document.getElementById('dispatchLogsContainer');
+            if (container) {
+                if (dispatchLogs.length === 0) {
+                    container.innerHTML = `<span class="text-gray-500">System ready. Waiting for 05:00 AM dispatch schedule or manual trigger...</span>`;
+                } else {
+                    container.innerHTML = dispatchLogs.map(l => `<div>${l}</div>`).join('');
+                }
+            }
+        }
+
+        function clearDispatchLogs() {
+            dispatchLogs = [];
+            localStorage.removeItem('temple_dispatch_logs');
+            renderLogs();
+        }
+
+
+        // --- GALLERY & INTERACTION SYSTEM ---
+        function renderGallery(filter = 'all') {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const filtered = mediaItems.filter(item => filter === 'all' || item.type === filter);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-amber-200 card-shadow overflow-hidden flex flex-col";
+
+                let mediaHtml = '';
+                if (item.type === 'photo') {
+                    mediaHtml = `<img src="${item.url}" alt="${item.title}" class="w-full h-52 object-cover">`;
+                } else {
+                    mediaHtml = `<div class="aspect-video w-full"><iframe class="w-full h-full" src="${item.url}" allowfullscreen></iframe></div>`;
+                }
+
+                card.innerHTML = `
+                    ${mediaHtml}
+                    <div class="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-amber-950 text-base mb-1">${item.title}</h4>
+                            <div class="flex justify-between items-center text-xs text-gray-500 mb-3">
+                                <span><i class="fa-solid font-semibold ${item.type==='photo'?'fa-image text-amber-600':'fa-video text-red-600'} mr-1"></i>${item.type.toUpperCase()}</span>
+                                <button onclick="likeMedia('${item.id}')" class="flex items-center space-x-1 text-red-600 font-semibold bg-red-50 px-2.5 py-1 rounded-full border border-red-100 hover:bg-red-100 transition">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>${item.likes}</span>
+                                </button>
+                            </div>
+                            
+                            <!-- Comments List -->
+                            <div class="space-y-1.5 mb-3 max-h-28 overflow-y-auto pr-1">
+                                ${item.comments.map(c => `<div class="text-xs bg-amber-50/70 p-2 rounded-lg border border-amber-100/60 text-gray-700">💬 ${c}</div>`).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Add Comment Input -->
+                        <div class="flex space-x-2 pt-2 border-t border-amber-100">
+                            <input type="text" id="cmt-${item.id}" placeholder="Write comment..." class="text-xs w-full border border-gray-300 rounded-lg p-2 focus:ring-saffron-500">
+                            <button onclick="addComment('${item.id}')" class="bg-saffron-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-saffron-700">Post</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGallery(type) {
+            renderGallery(type);
+        }
+
+        function likeMedia(id) {
+            const item = mediaItems.find(m => m.id === id);
+            if (item) {
+                item.likes++;
+                localStorage.setItem('temple_media', JSON.stringify(mediaItems));
+                renderGallery();
+            }
+        }
+
+        function addComment(id) {
+            const input = document.getElementById('cmt-' + id);
+            if (!input || !input.value.trim()) return;
+
+            const item = mediaItems.find(m => m.id === id);
+            if (item) {
+                const author = currentUser ? currentUser.name : 'Devotee';
+                item.comments.push(`${author}: ${input.value.trim()}`);
+                localStorage.setItem('temple_media', JSON.stringify(mediaItems));
+                renderGallery();
+            }
+        }
+
+
+        // --- ADMIN PANEL MANAGEMENT ---
+        function switchAdminSubTab(subId) {
+            document.querySelectorAll('.admin-subtab').forEach(el => {
+                el.classList.remove('border-saffron-600', 'text-saffron-700', 'font-bold');
+                el.classList.add('border-transparent', 'text-gray-500');
+            });
+            document.getElementById('adminTab-' + subId).classList.add('border-saffron-600', 'text-saffron-700', 'font-bold');
+
+            document.getElementById('adminSub-notifications').classList.add('hidden');
+            document.getElementById('adminSub-users').classList.add('hidden');
+            document.getElementById('adminSub-settings').classList.add('hidden');
+            document.getElementById('adminSub-media').classList.add('hidden');
+
+            document.getElementById('adminSub-' + subId).classList.remove('hidden');
+        }
+
+        function renderAdminUsers() {
+            const tbody = document.getElementById('adminUserTable');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            document.getElementById('userCountBadge').innerText = `${users.length} Devotees Registered`;
+
+            users.forEach(u => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-amber-50/50 transition";
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-amber-950">${u.name}</td>
+                    <td class="p-3 text-xs text-gray-600">${u.email}<br><span class="text-amber-800 font-medium">${u.phone || 'No phone'}</span></td>
+                    <td class="p-3 text-xs">${u.dob || '-'}</td>
+                    <td class="p-3 text-xs">${u.anniversary || '-'}</td>
+                    <td class="p-3 text-right space-x-1">
+                        <button onclick="triggerDirectWhatsApp('${u.id}', 'Birthday')" class="text-xs bg-green-100 text-green-800 font-bold px-2 py-1 rounded hover:bg-green-200" title="Instant 5 AM Birthday WhatsApp"><i class="fa-brands fa-whatsapp mr-1"></i>WA Birthday</button>
+                        <button onclick="triggerDirectWhatsApp('${u.id}', 'Anniversary')" class="text-xs bg-green-100 text-green-800 font-bold px-2 py-1 rounded hover:bg-green-200" title="Instant 5 AM Anniversary WhatsApp"><i class="fa-brands fa-whatsapp mr-1"></i>WA Anniv</button>
+                        <button onclick="triggerDirectEmail('${u.id}', 'Birthday')" class="text-xs bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded hover:bg-blue-200" title="Instant 5 AM Email"><i class="fa-solid fa-envelope mr-1"></i>Email</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function saveTempleSettings(e) {
+            e.preventDefault();
+            const banner = document.getElementById('adminBannerText').value;
+            const morning = document.getElementById('adminTimingMorning').value;
+            const evening = document.getElementById('adminTimingEvening').value;
+
+            if (banner) document.getElementById('bannerAnnouncement').innerHTML = `<span>🚩 ${banner}</span>`;
+            if (morning) document.getElementById('timingMorning').innerText = morning;
+            if (evening) document.getElementById('timingEvening').innerText = evening;
+
+            alert('Temple settings updated successfully!');
+        }
+
+        function addMediaItem(e) {
+            e.preventDefault();
+            const title = document.getElementById('mediaTitle').value;
+            const type = document.getElementById('mediaType').value;
+            const url = document.getElementById('mediaUrl').value;
+
+            const newItem = {
+                id: 'm_' + Date.now(),
+                title,
+                type,
+                url,
+                likes: 0,
+                comments: []
+            };
+
+            mediaItems.unshift(newItem);
+            localStorage.setItem('temple_media', JSON.stringify(mediaItems));
+            renderGallery();
+            renderAdminMedia();
+            e.target.reset();
+            alert('New media added to Temple Gallery!');
+        }
+
+        function renderAdminMedia() {
+            const container = document.getElementById('adminMediaList');
+            if (!container) return;
+            container.innerHTML = '';
+
+            mediaItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-amber-50 p-3 rounded-lg border border-amber-200 flex justify-between items-center text-xs";
+                card.innerHTML = `
+                    <div>
+                        <strong class="text-amber-950 block">${item.title}</strong>
+                        <span class="text-gray-500">${item.type.toUpperCase()}</span>
+                    </div>
+                    <button onclick="deleteMedia('${item.id}')" class="text-red-600 hover:text-red-800 font-bold p-1"><i class="fa-solid fa-trash"></i></button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function deleteMedia(id) {
+            mediaItems = mediaItems.filter(m => m.id !== id);
+            localStorage.setItem('temple_media', JSON.stringify(mediaItems));
+            renderGallery();
+            renderAdminMedia();
+        }
+
+        // --- AUDIO MANTRA TOGGLE ---
+        function toggleMantraAudio() {
+            const btnText = document.getElementById('mantraBtnText');
+            if (!mantraAudio) {
+                mantraAudio = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (isMantraPlaying) {
+                isMantraPlaying = false;
+                btnText.innerText = "Listen Mantra Chant";
+            } else {
+                isMantraPlaying = true;
+                btnText.innerText = "Chanting Active... (Click to Pause)";
+                playTempleBellSound();
+            }
+        }
+
+        function playTempleBellSound() {
+            if (!isMantraPlaying) return;
+            try {
+                const ctx = mantraAudio;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(432, ctx.currentTime);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 3);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start();
+                osc.stop(ctx.currentTime + 3);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    </script>
+</body>
+</html>
